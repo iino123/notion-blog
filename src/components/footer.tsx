@@ -2,8 +2,8 @@ import ExtLink from './ext-link'
 
 export default () => (
   <>
-    <footer>
+    {/* <footer>
       <ExtLink href="https://github.com/ijjk/notion-blog">Source code</ExtLink>
-    </footer>
+    </footer> */}
   </>
 )
