@@ -158,6 +158,9 @@ const RenderPost = ({ post, redirect, preview }) => {
         {post.Date && (
           <div className="posted">Posted: {getDateStr(post.Date)}</div>
         )}
+        {post.Tags && (
+          <div className="">Tags: {post.Tags.split(',').map(x => x)}</div>
+        )}
 
         <hr />
 
