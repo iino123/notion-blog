@@ -89,6 +89,9 @@ export default ({ posts = [], preview }) => {
               {post.Date && (
                 <div className="posted">Posted: {getDateStr(post.Date)}</div>
               )}
+              {post.Tags && (
+                <div className="">Tags: {post.Tags.split(',').map(x => x)}</div>
+              )}
               {post.Thumb && (
                 <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
                   <a>
