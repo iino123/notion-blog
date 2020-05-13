@@ -36,6 +36,9 @@ export async function getStaticProps({ preview }) {
 
   posts.map(post => {
     post.Authors = post.Authors.map(id => users[id].full_name)
+    post.Thumb =
+      post.Thumb &&
+      `/api/asset?assetUrl=${encodeURIComponent(post.Thumb)}&blockId=${post.id}`
   })
 
   return {
@@ -85,6 +88,13 @@ export default ({ posts = [], preview }) => {
               )}
               {post.Date && (
                 <div className="posted">Posted: {getDateStr(post.Date)}</div>
+              )}
+              {post.Thumb && (
+                <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
+                  <a>
+                    <img src={post.Thumb} />
+                  </a>
+                </Link>
               )}
               <p>
                 {(!post.preview || post.preview.length === 0) &&
